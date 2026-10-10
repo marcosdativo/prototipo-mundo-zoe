@@ -36,8 +36,8 @@
     },
     {
       pagina: "inicio", alvo: ".hero__teste",
-      titulo: "Teste: descubra o seu tratamento",
-      texto: "Em 3 perguntas o site sugere os procedimentos que combinam com a paciente e já leva as respostas para o WhatsApp. A conversa começa pronta.",
+      titulo: "Teste: conheça as opções",
+      texto: "Em 3 perguntas o site mostra os procedimentos relacionados ao que a paciente busca e já leva as respostas para o WhatsApp. A conversa começa pronta.",
       acao: { rotulo: "fazer o teste", alvo: ".hero__teste" }
     },
     {

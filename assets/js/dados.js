@@ -20,7 +20,11 @@ window.MZ = {
     cidade: "Cidade — UF",                         // A CONFIRMAR
     // Texto que o Google Maps entende (endereço completo). Vazio = mapa ilustrativo.
     mapa: "",
+    // Fuso da clínica: o selo "aberto agora" e a agenda usam este relógio, não o de quem visita.
+    fuso: "America/Sao_Paulo",                  // A CONFIRMAR
     // Expediente — A CONFIRMAR. 0 = domingo, 1 = segunda … 6 = sábado; dia que não aparece = fechado.
+    // Limites: o horário não pode passar da meia-noite ("18:00"–"02:00" não funciona) e a agenda
+    // oferece horários de hora em hora, então um turno com menos de 60 minutos não aparece nela.
     // Daqui saem os horários exibidos, o selo "Aberto agora" e os dias/horários da agenda do contato.
     expediente: {
       1: ["09:00", "19:00"],

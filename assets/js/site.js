@@ -37,7 +37,18 @@
       `${fmtHora(g.h[0])} às ${fmtHora(g.h[1])}`
     ]);
   }
-  function statusAgora(agora = new Date()) {
+  const FUSO = C.fuso || "America/Sao_Paulo";
+  function agoraNaClinica() {
+    try {
+      const partes = {};
+      new Intl.DateTimeFormat("en-US", { timeZone: FUSO, year: "numeric", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit", hourCycle: "h23" })
+        .formatToParts(new Date()).forEach((p) => { partes[p.type] = p.value; });
+      return new Date(+partes.year, +partes.month - 1, +partes.day, +partes.hour % 24, +partes.minute);
+    } catch (_) {
+      return new Date();
+    }
+  }
+  function statusAgora(agora = agoraNaClinica()) {
     if (!EXP) return null;
     const min = agora.getHours() * 60 + agora.getMinutes();
     const h = expedienteDe(agora);
@@ -162,7 +173,7 @@
   if (topo) {
     topo.innerHTML = `<div class="container topo__in">
         <a class="topo__logo" href="index.html" aria-label="Mundo Zoe — página inicial">
-          <img src="assets/img/logo-dourado-compacto.png" data-escuro="assets/img/logo-noturno-compacto.png" alt="Mundo Zoe" width="640" height="301">
+          <img src="assets/img/logo-dourado-compacto.webp" data-escuro="assets/img/logo-noturno-compacto.webp" alt="Mundo Zoe" width="640" height="301">
         </a>
         <nav class="nav" aria-label="Principal">
           ${NAV.map(([href, nome, chave]) => `<a href="${href}"${ativo(chave)}>${nome}</a>`).join("")}
@@ -195,7 +206,7 @@
   menu.setAttribute("aria-modal", "true");
   menu.setAttribute("aria-label", "Menu");
   menu.innerHTML = `<div class="menu-movel__topo">
-      <img src="assets/img/logo-dourado-compacto.png" data-escuro="assets/img/logo-noturno-compacto.png" alt="Mundo Zoe" width="640" height="301">
+      <img src="assets/img/logo-dourado-compacto.webp" data-escuro="assets/img/logo-noturno-compacto.webp" alt="Mundo Zoe" width="640" height="301">
       <button class="botao-redondo botao-redondo--claro" type="button" data-fechar-menu aria-label="Fechar menu">${svg("fechar")}</button>
     </div>
     <nav aria-label="Principal (celular)">
@@ -209,7 +220,7 @@
   document.body.appendChild(menu);
   const botaoMenu = topo && topo.querySelector(".topo__menu");
   // com o menu aberto, o que está atrás dele sai do alcance do Tab e do leitor de tela
-  const atrasDoMenu = () => [topo, document.querySelector("main"), document.getElementById("rodape"), document.querySelector(".flutuante")].filter(Boolean);
+  const atrasDoMenu = () => [topo, document.querySelector("main"), document.getElementById("rodape"), ...document.querySelectorAll(".flutuante, .bolha, .tour-lancador")].filter(Boolean);
   function abrirMenu() {
     menu.classList.add("aberto");
     document.body.classList.add("menu-aberto");
@@ -237,7 +248,7 @@
     const contato = procAtual && pagina === "procedimento" ? `contato.html?p=${procAtual.slug}` : "contato.html";
     el.innerHTML = `${ORBITA()}
       <div class="container">
-        <img class="chamada__logo revelar" src="assets/img/logo-noturno.png" alt="Mundo Zoe — Biomedicina Estética" width="900" height="576">
+        <img class="chamada__logo revelar" src="assets/img/logo-noturno.webp" alt="Mundo Zoe — Biomedicina Estética" width="900" height="576">
         <h2 class="revelar" style="--d:1">Sua melhor versão<br><em>começa com uma conversa.</em></h2>
         <p class="revelar" style="--d:2">Agende sua avaliação e conheça de perto o <strong>atendimento Mundo Zoe</strong>.</p>
         <div class="acoes revelar" style="--d:3">
@@ -254,7 +265,7 @@
     rodape.innerHTML = `<div class="container">
         <div class="rodape__grade">
           <div class="rodape__marca">
-            <img src="assets/img/logo-noturno.png" alt="Mundo Zoe — Biomedicina Estética" width="900" height="576" loading="lazy">
+            <img src="assets/img/logo-noturno.webp" alt="Mundo Zoe — Biomedicina Estética" width="900" height="576" loading="lazy">
             <p>Sofisticação, tecnologia e beleza, com atendimento personalizado, acolhedor e de alto padrão.</p>
             <div class="sociais">
               <a href="#" data-whats aria-label="WhatsApp">${svg("whats")}</a>
@@ -314,7 +325,10 @@
       <button class="btn btn--ouro" type="button" data-fechar>Entendi</button>
     </div>`;
   document.body.appendChild(demo);
-  demo.addEventListener("click", (e) => { if (e.target === demo || e.target.closest("[data-fechar]")) demo.close(); });
+  let demoAbertaEm = 0;
+  demo.addEventListener("click", (e) => {
+    if ((e.target === demo && performance.now() - demoAbertaEm > 400) || e.target.closest("[data-fechar]")) demo.close();
+  });
 
   function abrirDemo({ titulo, texto, mensagem, nota }) {
     demo.querySelector("#demo-titulo").textContent = titulo;
@@ -323,6 +337,7 @@
     demo.querySelector("[data-demo-msg]").textContent = mensagem || "";
     demo.querySelector("[data-demo-nota]").textContent = nota || "";
     fecharMenu();
+    demoAbertaEm = performance.now();
     if (typeof demo.showModal === "function") demo.showModal();
     else alert(`${titulo}\n\n${mensagem || texto}`);
   }
@@ -439,6 +454,7 @@
     img.className = "foto__img";
     img.alt = "";
     img.decoding = "async";
+    img.draggable = false;
     img.loading = imediata ? "eager" : "lazy";
     if (f.pos) img.style.objectPosition = f.pos;
     img.addEventListener("error", () => { img.remove(); el.classList.remove("foto--com-img"); });
@@ -468,12 +484,17 @@
   document.querySelectorAll("[data-c-horarios]").forEach((el) => {
     el.innerHTML = (C.horarios || []).map(([d, h]) => `<li><span>${esc(d)}</span><span>${esc(h)}</span></li>`).join("");
   });
-  const status = statusAgora();
-  document.querySelectorAll("[data-status-aberto]").forEach((el) => {
-    if (!status) { (el.closest("li") || el).hidden = true; return; }
-    el.textContent = status.texto;
-    el.classList.toggle("aberto", status.aberto);
-  });
+  function atualizarStatus() {
+    const status = statusAgora();
+    document.querySelectorAll("[data-status-aberto]").forEach((el) => {
+      if (!status) { (el.closest("li") || el).hidden = true; return; }
+      el.textContent = status.texto;
+      el.classList.toggle("aberto", status.aberto);
+    });
+  }
+  atualizarStatus();
+  setInterval(atualizarStatus, 60000);
+  document.addEventListener("visibilitychange", () => { if (!document.hidden) atualizarStatus(); });
   document.querySelectorAll("[data-ano]").forEach((el) => { el.textContent = new Date().getFullYear(); });
   document.querySelectorAll("[data-total-procs]").forEach((el) => { el.textContent = PROCS.length; });
 
@@ -592,10 +613,12 @@
       if (!item) return;
       lista = [...galeria.querySelectorAll(".galeria__item:not([hidden])")];
       mostrar(lista.indexOf(item));
+      luzAbertaEm = performance.now();
       if (typeof luz.showModal === "function") luz.showModal();
     });
+    let luzAbertaEm = 0;
     luz.addEventListener("click", (e) => {
-      if (e.target === luz || e.target.closest("[data-fechar]")) luz.close();
+      if ((e.target === luz && performance.now() - luzAbertaEm > 400) || e.target.closest("[data-fechar]")) luz.close();
       else if (e.target.closest("[data-anterior]")) mostrar(atual - 1);
       else if (e.target.closest("[data-proximo]")) mostrar(atual + 1);
     });
@@ -611,6 +634,7 @@
       x0 = null;
       if (Math.abs(dx) > 45) mostrar(atual + (dx < 0 ? 1 : -1));
     });
+    luz.addEventListener("pointercancel", () => { x0 = null; });
   }
 
   /* ---------- mapa ---------- */
@@ -636,8 +660,11 @@
     const MESES = ["jan", "fev", "mar", "abr", "mai", "jun", "jul", "ago", "set", "out", "nov", "dez"];
     const DIAS_CURTOS = ["dom", "seg", "ter", "qua", "qui", "sex", "sáb"];
     const deIso = (t) => { const [a, m, d] = t.split("-").map(Number); return new Date(a, m - 1, d); };
-    if (EXP && diasEl && horasEl) {
-      const agora = new Date();
+    const DIAS_LONGOS_MES = ["janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"];
+    let agendaDe = "";
+    const montarAgenda = () => {
+      const agora = agoraNaClinica();
+      agendaDe = iso(agora);
       const minAgora = agora.getHours() * 60 + agora.getMinutes();
       // horários de hora em hora; hoje, só com pelo menos 1h de antecedência
       const horasDoDia = (d) => {
@@ -655,7 +682,9 @@
         const d = new Date(agora.getFullYear(), agora.getMonth(), agora.getDate() + k);
         if (horasDoDia(d).length) dias.push({ d, k });
       }
-      diasEl.innerHTML = dias.map(({ d, k }, i) => `<label class="dia"><input type="radio" name="dia" value="${iso(d)}"${i === 0 ? " required" : ""}>
+      if (!dias.length) { form.querySelectorAll("[data-agenda]").forEach((el) => { el.hidden = true; }); return; }
+      diasEl.innerHTML = dias.map(({ d, k }, i) => `<label class="dia"><input type="radio" name="dia" value="${iso(d)}"${i === 0 ? " required" : ""}
+          aria-label="${k === 0 ? "hoje, " : k === 1 ? "amanhã, " : ""}${DIAS_LONGOS[d.getDay()]}, ${d.getDate()} de ${DIAS_LONGOS_MES[d.getMonth()]}">
           <span><small>${k === 0 ? "Hoje" : k === 1 ? "Amanhã" : DIAS_CURTOS[d.getDay()]}</small><strong>${d.getDate()}</strong><em>${MESES[d.getMonth()]}</em></span></label>`).join("");
       const desenharHoras = (d) => {
         const lista = d ? horasDoDia(d) : [];
@@ -664,7 +693,15 @@
           (d ? "" : `<span class="agenda-dica">Escolha um dia para ver os horários.</span>`);
       };
       desenharHoras(null);
-      diasEl.addEventListener("change", (e) => { if (e.target.name === "dia") desenharHoras(deIso(e.target.value)); });
+      diasEl.onchange = (e) => { if (e.target.name === "dia") desenharHoras(deIso(e.target.value)); };
+    };
+    if (EXP && diasEl && horasEl) {
+      horasEl.setAttribute("aria-live", "polite");
+      montarAgenda();
+      // aba aberta de um dia para o outro: refaz a agenda ("Hoje" continua sendo hoje)
+      document.addEventListener("visibilitychange", () => {
+        if (!document.hidden && iso(agoraNaClinica()) !== agendaDe) montarAgenda();
+      });
     } else {
       form.querySelectorAll("[data-agenda]").forEach((el) => { el.hidden = true; });
     }

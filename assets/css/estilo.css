@@ -61,7 +61,7 @@
 
 /* ---------- base ---------- */
 *, *::before, *::after { box-sizing: border-box; }
-html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; scroll-padding-top: calc(var(--topo-h) + 12px); }
+html { scrollbar-gutter: stable; scroll-behavior: smooth; -webkit-text-size-adjust: 100%; scroll-padding-top: calc(var(--topo-h) + 12px); }
 body {
   margin: 0;
   background: var(--bg);
@@ -723,6 +723,7 @@ dialog::backdrop { background: rgba(23, 21, 21, .7); -webkit-backdrop-filter: bl
 [data-tema="escuro"] .demo__chat { background: #0B141A radial-gradient(rgba(255, 255, 255, .04) 1px, transparent 1px) 0 0 / 14px 14px; }
 [data-tema="escuro"] .demo__balao { background: #005C4B; color: #E9EDEF; }
 [data-tema="escuro"] .demo__hora { color: #8696A0; }
+[data-tema="escuro"] .quiz__in, [data-tema="escuro"] .demo__in { background: var(--bg-2); border: 1px solid var(--linha-ouro); }
 
 /* troca suave de tema (só durante a troca, para não pesar nas animações) */
 .trocando-tema *, .trocando-tema *::before, .trocando-tema *::after {
@@ -762,7 +763,7 @@ html.com-intro::after {
   content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1px;
   background: linear-gradient(90deg, transparent, var(--ouro), transparent); opacity: .7;
 }
-.intro.saindo { transform: translateY(-100%); }
+.intro.saindo { transform: translateY(-100%); pointer-events: none; }
 .intro__logo { position: relative; width: min(320px, 68vw); overflow: hidden; }
 .intro__logo img {
   width: 100%; opacity: 0; filter: blur(12px); transform: translateY(16px) scale(.96);
@@ -822,7 +823,7 @@ button.link-seta { background: none; border: 0; border-bottom: 1px solid var(--o
 .convite-teste { margin-top: 40px; }
 
 /* ---------- teste "Descubra o seu tratamento" ---------- */
-.quiz { width: min(94vw, 760px); max-height: calc(100vh - 24px); max-height: calc(100dvh - 24px); overflow-y: auto; }
+.quiz { width: min(94vw, 760px); max-height: calc(100vh - 24px); max-height: calc(100dvh - 24px); overflow-y: auto; overscroll-behavior: contain; }
 .quiz__in {
   position: relative; background: var(--bg); border-radius: 28px;
   padding: clamp(24px, 4vw, 44px); box-shadow: 0 40px 80px -30px rgba(0, 0, 0, .55);
@@ -873,7 +874,9 @@ button.link-seta { background: none; border: 0; border-bottom: 1px solid var(--o
 .quiz__rec-texto span { font-size: .85rem; color: var(--txt-2); line-height: 1.5; }
 .quiz__rec .selo { align-self: start; padding: 6px 10px; border: 1px solid var(--linha-ouro); border-radius: 999px; font-size: .58rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--ouro-texto); white-space: nowrap; }
 .quiz__aviso { font-size: .8rem; font-style: italic; color: var(--txt-2); padding-left: 14px; border-left: 1px solid var(--linha-ouro); margin-bottom: 24px; }
-.quiz__final { display: flex; flex-wrap: wrap; gap: 12px; }
+.quiz__final { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+.quiz__ajustar { background: none; border: 0; padding: 10px 4px; cursor: pointer; font-family: var(--sans); font-size: .64rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--txt-2); }
+.quiz__ajustar:hover { color: var(--txt); }
 
 /* ---------- agenda do contato ---------- */
 .agenda-dias { display: flex; gap: 10px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 4px 2px 12px; scrollbar-width: thin; }
@@ -908,7 +911,7 @@ button.link-seta { background: none; border: 0; border-bottom: 1px solid var(--o
   animation: bolha-entra .55s cubic-bezier(.2, .7, .2, 1);
 }
 @keyframes bolha-entra { from { opacity: 0; transform: translateY(16px) scale(.96); } }
-.bolha__topo { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; padding-right: 26px; }
+.bolha__topo { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; padding-right: 34px; }
 .bolha__topo img { width: 40px; height: 40px; flex: none; }
 .bolha__topo strong { display: block; font-family: var(--serif); font-size: 1.2rem; font-weight: 600; line-height: 1.1; }
 .bolha__topo small { font-size: .7rem; color: var(--txt-2); }
@@ -916,14 +919,14 @@ button.link-seta { background: none; border: 0; border-bottom: 1px solid var(--o
 .bolha__acoes { display: flex; gap: 8px; }
 .bolha__acoes .btn { flex: 1 1 0; min-height: 42px; padding: 0 12px; font-size: .6rem; letter-spacing: .14em; }
 .bolha__fechar {
-  position: absolute; top: 10px; right: 10px; width: 30px; height: 30px; border-radius: 50%; cursor: pointer;
+  position: absolute; top: 6px; right: 6px; width: 40px; height: 40px; border-radius: 50%; cursor: pointer;
   display: grid; place-items: center; border: 0; background: transparent; color: var(--txt-2);
 }
 .bolha__fechar:hover { color: var(--txt); background: var(--realce); }
 .bolha__fechar .ic { width: 16px; height: 16px; }
 
 @media (max-width: 640px) {
-  .quiz { width: 100vw; max-width: 100vw; height: 100dvh; max-height: 100dvh; margin: 0; }
+  .quiz { width: 100%; max-width: 100%; height: 100dvh; max-height: 100dvh; margin: 0; }
   .quiz__in { min-height: 100%; border-radius: 0; }
   .quiz__opcoes, .quiz__opcoes--3 { grid-template-columns: 1fr; }
   .opcao--grande > span { flex-direction: row; align-items: center; flex-wrap: wrap; padding: 18px 20px; }
@@ -1086,7 +1089,7 @@ body.tour-ativo .tour-lancador { display: none; }
   .orbita__giro, .orbita__brilho, .letreiro__trilho, .flutuante::before, .mapa__pino, .mapa__onda, .status-aberto.aberto::before { animation: none; }
   .intro { transition: opacity .7s ease; }
   .intro.saindo { transform: none; opacity: 0; }
-  .intro__logo img { transform: none; filter: none; animation-name: so-aparecer; }
+  .intro__logo img { opacity: 1; transform: none; filter: none; animation-name: so-aparecer; }
   .intro__logo::after, .btn--ouro::after { display: none; }
   .quiz__corpo--entra, .quiz__rec, .bolha { animation-name: so-aparecer; }
   a.card-proc:hover, .galeria__item:hover, .opcao > span:hover, .dia > span:hover, .btn--ouro:hover { transform: none; }
