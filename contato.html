@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- protótipo de apresentação: fica fora da busca do Google (tirar no site final) -->
+  <meta name="robots" content="noindex, nofollow">
+  <title>Contato e agendamento | Mundo Zoe Biomedicina Estética</title>
+  <meta name="description" content="Agende sua avaliação na Mundo Zoe pelo WhatsApp. Endereço, horários, telefone e Instagram.">
+  <meta name="theme-color" content="#F7F3EC">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Mundo Zoe — Biomedicina Estética">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="Contato e agendamento | Mundo Zoe Biomedicina Estética">
+  <meta property="og:description" content="Agende sua avaliação na Mundo Zoe pelo WhatsApp. Endereço, horários, telefone e Instagram.">
+  <meta property="og:image" content="https://marcosdativo.github.io/prototipo-mundo-zoe/assets/img/compartilhar.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" type="image/png" href="assets/img/favicon.png">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/estilo.css">
+  <script>document.documentElement.classList.add("js");try{if(localStorage.getItem("mz-tema")==="escuro")document.documentElement.setAttribute("data-tema","escuro")}catch(e){}try{if(!sessionStorage.getItem("mz-intro"))document.documentElement.classList.add("com-intro")}catch(e){}</script>
+  <script src="assets/js/dados.js" defer></script>
+  <script src="assets/js/site.js" defer></script>
+  <script src="assets/js/experiencia.js" defer></script>
+  <script src="assets/js/tour.js" defer></script>
+</head>
+<body data-pagina="contato">
+  <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+  <header class="topo" id="topo"></header>
+
+  <main id="conteudo">
+    <section class="cab-pagina">
+      <span data-orbita="cab-pagina__orbita"></span>
+      <img class="cab-pagina__emblema" src="assets/img/emblema.png" data-escuro="assets/img/emblema-noturno.png" alt="" width="400" height="400">
+      <div class="container">
+        <nav class="migalhas" aria-label="Você está em"><a href="index.html">Início</a><i data-ic="brilho"></i><span>Contato</span></nav>
+        <span class="sobretitulo revelar">Contato e agendamento</span>
+        <h1 class="titulo-xl revelar" style="--d:1">Agende sua avaliação.<br><em>A gente cuida do resto.</em></h1>
+        <p class="lead revelar" style="--d:2">Conte um pouco sobre o que você procura. A conversa continua <strong>no WhatsApp</strong>, com a equipe da Mundo Zoe.</p>
+      </div>
+    </section>
+
+    <section class="secao secao--curta">
+      <div class="container">
+        <div class="contato-grade">
+          <form class="cartao-form revelar" id="form-agendamento" novalidate>
+            <span class="sobretitulo">Agendamento</span>
+            <h2 class="titulo-m">Sua mensagem,<br><em>já pronta.</em></h2>
+            <p>Preencha em poucos segundos — nós montamos a mensagem para você.</p>
+
+            <div class="campos-2">
+              <div class="campo">
+                <label for="nome">Seu nome</label>
+                <input id="nome" name="nome" type="text" autocomplete="given-name" required placeholder="Como podemos te chamar?">
+              </div>
+              <div class="campo">
+                <label for="interesse">Procedimento de interesse</label>
+                <select id="interesse" name="interesse" required></select>
+              </div>
+            </div>
+
+            <fieldset class="campo" data-agenda>
+              <legend>Escolha um dia</legend>
+              <div class="agenda-dias" data-agenda-dias></div>
+            </fieldset>
+
+            <fieldset class="campo" data-agenda>
+              <legend>Horário de preferência</legend>
+              <div class="chips" data-agenda-horas></div>
+              <p class="agenda-nota">Os horários seguem o expediente da clínica. A equipe confirma a disponibilidade pelo WhatsApp.</p>
+            </fieldset>
+
+            <div class="campo">
+              <label for="mensagem">Quer contar mais alguma coisa? <span style="text-transform:none;letter-spacing:0;font-weight:400;color:var(--txt-2)">(opcional)</span></label>
+              <textarea id="mensagem" name="mensagem" rows="3" maxlength="500" placeholder="Ex.: é a minha primeira vez, tenho uma data especial chegando…"></textarea>
+            </div>
+
+            <button class="btn btn--ouro" type="submit"><i data-ic="whats"></i> Continuar no WhatsApp</button>
+            <p class="form-nota"><i data-ic="escudo"></i><span><strong>Seus dados não ficam guardados no site:</strong> eles só montam a mensagem que você envia pelo WhatsApp.</span></p>
+          </form>
+
+          <aside class="cartao-info revelar" style="--d:1" aria-label="Informações de contato">
+            <h2>Fale com a gente</h2>
+            <p>Atendimento com hora marcada.</p>
+            <p class="status-aberto" data-status-aberto></p>
+            <div class="info-item">
+              <span class="info-item__icone"><i data-ic="whats"></i></span>
+              <div><small>WhatsApp</small><a href="#" data-whats data-c="whatsappExibicao"></a></div>
+            </div>
+            <div class="info-item">
+              <span class="info-item__icone"><i data-ic="tel"></i></span>
+              <div><small>Telefone</small><a href="#" data-tel data-c="telefoneExibicao"></a></div>
+            </div>
+            <div class="info-item">
+              <span class="info-item__icone"><i data-ic="insta"></i></span>
+              <div><small>Instagram</small><a href="#" data-instagram data-c="instagram"></a></div>
+            </div>
+            <div class="info-item">
+              <span class="info-item__icone"><i data-ic="pin"></i></span>
+              <div><small>Endereço</small><p><span data-c="endereco"></span><br><span data-c="cidade"></span></p></div>
+            </div>
+            <div class="info-item">
+              <span class="info-item__icone"><i data-ic="relogio"></i></span>
+              <div><small>Horários</small><ul data-c-horarios></ul></div>
+            </div>
+          </aside>
+        </div>
+
+        <div class="mapa revelar" data-mapa>
+          <svg class="mapa__ilustracao" viewBox="0 0 1200 440" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+            <rect class="m-fundo" width="1200" height="440"/>
+            <g class="m-quadra">
+              <rect x="40" y="30" width="300" height="90" rx="10"/><rect x="40" y="190" width="240" height="120" rx="10"/>
+              <rect x="500" y="20" width="200" height="110" rx="10"/><rect x="880" y="40" width="270" height="80" rx="10"/>
+              <rect x="860" y="200" width="300" height="160" rx="10"/><rect x="520" y="260" width="200" height="150" rx="10"/>
+            </g>
+            <ellipse class="m-parque" cx="380" cy="350" rx="110" ry="60"/>
+            <g class="m-rua" fill="none" stroke-linecap="round">
+              <path d="M-20 160C300 130 620 200 1220 150" stroke-width="22"/>
+              <path d="M440 -20C460 140 410 300 470 460" stroke-width="18"/>
+              <path d="M820 -20L760 460" stroke-width="18"/>
+              <path d="M-20 400C380 360 800 410 1220 380" stroke-width="12"/>
+              <path d="M600 160C640 220 700 250 790 250" stroke-width="10"/>
+            </g>
+            <g transform="translate(612 210)">
+              <circle class="mapa__onda" r="40" fill="#C5A15A" opacity=".4"/>
+              <g class="mapa__pino">
+                <path d="M0 0C-4-12-22-24-22-42a22 22 0 0 1 44 0C22-24 4-12 0 0z" fill="#C5A15A" stroke="#9A7638" stroke-width="1.5"/>
+                <circle cy="-42" r="8" fill="#FCFAF6"/>
+              </g>
+            </g>
+          </svg>
+          <div class="mapa__cartao">
+            <strong>Mundo Zoe</strong>
+            <p><span data-c="endereco"></span> · <span data-c="cidade"></span></p>
+            <a class="btn btn--linha btn--p" href="#" data-rota><i data-ic="pin"></i> Como chegar</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape" id="rodape"></footer>
+</body>
+</html>

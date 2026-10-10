@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- protótipo de apresentação: fica fora da busca do Google (tirar no site final) -->
+  <meta name="robots" content="noindex, nofollow">
+  <title>Resultados | Mundo Zoe Biomedicina Estética</title>
+  <meta name="description" content="Resultados e experiência na Mundo Zoe: galeria de procedimentos faciais e corporais e do ambiente da clínica.">
+  <meta name="theme-color" content="#F7F3EC">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Mundo Zoe — Biomedicina Estética">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="Resultados | Mundo Zoe Biomedicina Estética">
+  <meta property="og:description" content="Resultados e experiência na Mundo Zoe: galeria de procedimentos faciais e corporais e do ambiente da clínica.">
+  <meta property="og:image" content="https://marcosdativo.github.io/prototipo-mundo-zoe/assets/img/compartilhar.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" type="image/png" href="assets/img/favicon.png">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/estilo.css">
+  <script>document.documentElement.classList.add("js");try{if(localStorage.getItem("mz-tema")==="escuro")document.documentElement.setAttribute("data-tema","escuro")}catch(e){}try{if(!sessionStorage.getItem("mz-intro"))document.documentElement.classList.add("com-intro")}catch(e){}</script>
+  <script src="assets/js/dados.js" defer></script>
+  <script src="assets/js/site.js" defer></script>
+  <script src="assets/js/experiencia.js" defer></script>
+  <script src="assets/js/tour.js" defer></script>
+</head>
+<body data-pagina="resultados">
+  <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+  <header class="topo" id="topo"></header>
+
+  <main id="conteudo">
+    <section class="cab-pagina">
+      <span data-orbita="cab-pagina__orbita"></span>
+      <img class="cab-pagina__emblema" src="assets/img/emblema.png" data-escuro="assets/img/emblema-noturno.png" alt="" width="400" height="400">
+      <div class="container">
+        <nav class="migalhas" aria-label="Você está em"><a href="index.html">Início</a><i data-ic="brilho"></i><span>Resultados</span></nav>
+        <span class="sobretitulo revelar">Resultados e galeria</span>
+        <h1 class="titulo-xl revelar" style="--d:1">Resultados e experiência,<br><em>com naturalidade.</em></h1>
+        <p class="lead revelar" style="--d:2">Procedimentos, resultados e o ambiente da clínica — imagens claras e naturais, como a própria Mundo Zoe.</p>
+      </div>
+    </section>
+
+    <section class="secao">
+      <div class="container dupla">
+        <div class="comparar revelar">
+          <div class="comparar__lado comparar__depois foto foto--nevoa" data-legenda="Foto · depois"></div>
+          <div class="comparar__lado comparar__antes foto foto--bronze" data-legenda="Foto · antes"></div>
+          <span class="comparar__rotulo comparar__rotulo--antes">Antes</span>
+          <span class="comparar__rotulo comparar__rotulo--depois">Depois</span>
+          <div class="comparar__linha"><span class="comparar__pega"><i data-ic="setas"></i></span></div>
+          <input type="range" min="0" max="100" value="50" aria-label="Comparar antes e depois">
+        </div>
+        <div>
+          <span class="sobretitulo revelar">Antes e depois</span>
+          <h2 class="titulo-l revelar" style="--d:1">Compare<br><em>com um gesto.</em></h2>
+          <p class="lead revelar" style="--d:2">Arraste a linha para comparar. Cada comparação mostra o procedimento, com fotos publicadas <strong>somente com autorização da paciente</strong>.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="secao secao--clara">
+      <div class="container">
+        <div class="cabeca">
+          <div>
+            <span class="sobretitulo revelar">Galeria</span>
+            <h2 class="titulo-l revelar" style="--d:1">Cada detalhe,<br><em>em imagens.</em></h2>
+          </div>
+        </div>
+        <div class="filtros" data-filtros="#galeria" role="group" aria-label="Filtrar galeria">
+          <button class="filtro" type="button" data-filtro="todos" aria-pressed="true">Todos</button>
+          <button class="filtro" type="button" data-filtro="Facial" aria-pressed="false">Facial</button>
+          <button class="filtro" type="button" data-filtro="Corporal" aria-pressed="false">Corporal</button>
+          <button class="filtro" type="button" data-filtro="Ambiente" aria-pressed="false">Ambiente</button>
+        </div>
+        <div class="galeria" id="galeria" data-galeria>
+          <button class="galeria__item foto alto revelar" type="button" data-area="Facial" data-legenda="Botox · Procedimento" data-foto="proc:botox"><span class="galeria__lupa"><i data-ic="lupa"></i></span></button>
+          <button class="galeria__item foto foto--nevoa revelar" style="--d:1" type="button" data-area="Ambiente" data-legenda="Ambiente · Recepção" data-foto="recepcao"><span class="galeria__lupa"><i data-ic="lupa"></i></span></button>
+          <button class="galeria__item foto foto--rose revelar" style="--d:2" type="button" data-area="Corporal" data-legenda="Criolipólise · Procedimento" data-foto="proc:criolipolise"><span class="galeria__lupa"><i data-ic="lupa"></i></span></button>
+          <button class="galeria__item foto foto--bronze largo revelar" type="button" data-area="Ambiente" data-legenda="Ambiente · Sala de procedimentos" data-foto="sala"><span class="galeria__lupa"><i data-ic="lupa"></i></span></button>
+          <button class="galeria__item foto foto--rose revelar" type="button" data-area="Facial" data-legenda="Preenchimento · Procedimento" data-foto="proc:preenchimento"><span class="galeria__lupa"><i data-ic="lupa"></i></span></button>
+          <button class="galeria__item foto foto--nevoa alto revelar" style="--d:1" type="button" data-area="Corporal" data-legenda="Glúteo Max · Procedimento" data-foto="proc:gluteo-max"><span class="galeria__lupa"><i data-ic="lupa"></i></span></button>
+          <button class="galeria__item foto revelar" style="--d:2" type="button" data-area="Facial" data-legenda="Ultraformer · Procedimento" data-foto="proc:ultraformer"><span class="galeria__lupa"><i data-ic="lupa"></i></span></button>
+          <button class="galeria__item foto foto--bronze revelar" type="button" data-area="Ambiente" data-legenda="Ambiente · Detalhes" data-foto="detalhes"><span class="galeria__lupa"><i data-ic="lupa"></i></span></button>
+          <button class="galeria__item foto foto--rose revelar" style="--d:1" type="button" data-area="Corporal" data-legenda="Endolaser · Procedimento" data-foto="proc:endolaser"><span class="galeria__lupa"><i data-ic="lupa"></i></span></button>
+        </div>
+        <p class="nota">Imagens publicadas somente com autorização das pacientes. Os resultados variam de pessoa para pessoa.</p>
+      </div>
+    </section>
+
+    <section class="chamada" data-chamada></section>
+  </main>
+
+  <dialog class="caixa-luz" id="caixa-luz" aria-label="Imagem ampliada">
+    <div class="foto"></div>
+    <div class="caixa-luz__barra">
+      <div aria-live="polite"><strong data-legenda-texto></strong><br><span data-contador></span></div>
+      <div class="caixa-luz__botoes">
+        <button class="botao-redondo" type="button" data-anterior aria-label="Imagem anterior"><i data-ic="esquerda"></i></button>
+        <button class="botao-redondo" type="button" data-proximo aria-label="Próxima imagem"><i data-ic="direita"></i></button>
+        <button class="botao-redondo" type="button" data-fechar aria-label="Fechar"><i data-ic="fechar"></i></button>
+      </div>
+    </div>
+  </dialog>
+
+  <footer class="rodape" id="rodape"></footer>
+</body>
+</html>

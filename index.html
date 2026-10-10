@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- protótipo de apresentação: fica fora da busca do Google (tirar no site final) -->
+  <meta name="robots" content="noindex, nofollow">
+  <title>Mundo Zoe | Biomedicina Estética</title>
+  <meta name="description" content="Mundo Zoe — clínica de biomedicina estética. Botox, preenchimento, Sculptra, Ultraformer, endolaser, criolipólise, Glúteo Max e remoção de vasinhos, com atendimento personalizado e de alto padrão.">
+  <meta name="theme-color" content="#F7F3EC">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Mundo Zoe — Biomedicina Estética">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="Mundo Zoe | Biomedicina Estética">
+  <meta property="og:description" content="Mundo Zoe — clínica de biomedicina estética. Botox, preenchimento, Sculptra, Ultraformer, endolaser, criolipólise, Glúteo Max e remoção de vasinhos, com atendimento personalizado e de alto padrão.">
+  <meta property="og:image" content="https://marcosdativo.github.io/prototipo-mundo-zoe/assets/img/compartilhar.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" type="image/png" href="assets/img/favicon.png">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/estilo.css">
+  <script>document.documentElement.classList.add("js");try{if(localStorage.getItem("mz-tema")==="escuro")document.documentElement.setAttribute("data-tema","escuro")}catch(e){}try{if(!sessionStorage.getItem("mz-intro"))document.documentElement.classList.add("com-intro")}catch(e){}</script>
+  <script src="assets/js/dados.js" defer></script>
+  <script src="assets/js/site.js" defer></script>
+  <script src="assets/js/experiencia.js" defer></script>
+  <script src="assets/js/tour.js" defer></script>
+</head>
+<body data-pagina="inicio">
+  <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+  <header class="topo" id="topo"></header>
+
+  <main id="conteudo">
+    <!-- 1. Primeira impressão -->
+    <section class="hero">
+      <div class="container hero__grid">
+        <div class="hero__texto">
+          <span class="sobretitulo revelar">Biomedicina estética</span>
+          <h1 class="titulo-xl revelar" style="--d:1">Estética avançada,<br><em>cuidado que é só seu.</em></h1>
+          <p class="lead revelar" style="--d:2">Tecnologia, técnica e um atendimento acolhedor para realçar a sua beleza com naturalidade — sempre a partir de uma <strong>avaliação individual</strong>.</p>
+          <div class="acoes revelar" style="--d:3">
+            <a class="btn btn--ouro" href="#" data-whats><i data-ic="whats"></i> Agendar avaliação</a>
+            <a class="btn btn--linha" href="procedimentos.html">Ver procedimentos</a>
+          </div>
+          <button class="link-seta hero__teste revelar" style="--d:4" type="button" data-quiz>Não sabe qual escolher? Faça o teste <i data-ic="seta"></i></button>
+          <ul class="hero__selos revelar" style="--d:4">
+            <li><i data-ic="brilho"></i> <span><span data-total-procs>8</span> procedimentos faciais e corporais</span></li>
+            <li><i data-ic="brilho"></i> Avaliação individual</li>
+            <li><i data-ic="brilho"></i> Protocolos personalizados</li>
+          </ul>
+        </div>
+        <div class="hero__visual revelar" style="--d:2">
+          <span data-orbita></span>
+          <div class="foto foto--arco" data-legenda="Foto · Profissional e clínica" data-foto="inicio">
+            <img class="marca-dagua" src="assets/img/logo-dourado.png" data-escuro="assets/img/logo-noturno.png" alt="" width="1000" height="539">
+          </div>
+          <div class="hero__cartao">
+            <img src="assets/img/emblema.png" data-escuro="assets/img/emblema-noturno.png" alt="" width="48" height="48">
+            <div><strong>Avaliação personalizada</strong><span>Cada protocolo é pensado para você.</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="letreiro" data-letreiro aria-hidden="true"></div>
+
+    <!-- 2. Procedimentos -->
+    <section class="secao" id="procedimentos">
+      <div class="container">
+        <div class="cabeca">
+          <div>
+            <span class="sobretitulo revelar">Procedimentos</span>
+            <h2 class="titulo-l revelar" style="--d:1">Para o rosto e para o corpo,<br><em>o cuidado certo para você.</em></h2>
+          </div>
+          <div class="cabeca__lado revelar" style="--d:2">
+            <p class="lead">Tecnologias e técnicas selecionadas, conduzidas por <strong>profissional de biomedicina estética</strong>.</p>
+            <a class="link-seta" href="procedimentos.html">Ver todos <i data-ic="seta"></i></a>
+          </div>
+        </div>
+        <div class="filtros" data-filtros="#grade-home" role="group" aria-label="Filtrar procedimentos">
+          <button class="filtro" type="button" data-filtro="todos" aria-pressed="true">Todos</button>
+          <button class="filtro" type="button" data-filtro="Facial" aria-pressed="false">Facial</button>
+          <button class="filtro" type="button" data-filtro="Corporal" aria-pressed="false">Corporal</button>
+        </div>
+        <div class="grade-proc grade-proc--rolagem" id="grade-home" data-lista-procedimentos="grade"></div>
+        <div class="caixa-guia convite-teste revelar">
+          <div>
+            <h3>Não sabe qual tratamento escolher?<br><em>Descubra em 1 minuto.</em></h3>
+            <p>Responda 3 perguntas rápidas e veja quais procedimentos combinam com o que você busca, para conversar na sua <strong>avaliação</strong>.</p>
+          </div>
+          <button class="btn btn--ouro" type="button" data-quiz>Fazer o teste</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Validação: quem é a clínica -->
+    <section class="secao secao--clara secao--textura">
+      <span class="palavra-gigante palavra-gigante--zoe" aria-hidden="true">Zoe</span>
+      <div class="container dupla">
+        <div class="mosaico revelar">
+          <div class="foto foto--rose" data-legenda="Foto · Ambiente da clínica" data-foto="ambiente"></div>
+          <div class="foto foto--nevoa" data-legenda="Foto · Detalhe" data-foto="detalhe"></div>
+        </div>
+        <div>
+          <span class="sobretitulo revelar">A Mundo Zoe</span>
+          <h2 class="titulo-l revelar" style="--d:1">Estética é cuidado.<br><em>E cuidado é o nosso mundo.</em></h2>
+          <p class="lead revelar" style="--d:2">Unimos estética avançada a um atendimento personalizado, acolhedor e de alto padrão — com você <strong>do primeiro contato ao resultado</strong>.</p>
+          <ul class="lista-check revelar" style="--d:3">
+            <li><i data-ic="brilho"></i><div><strong>Atendimento individual</strong><span>Escuta atenta e um plano pensado para os seus objetivos.</span></div></li>
+            <li><i data-ic="brilho"></i><div><strong>Tecnologia e técnica</strong><span>Procedimentos e equipamentos de estética avançada.</span></div></li>
+            <li><i data-ic="brilho"></i><div><strong>Experiência acolhedora</strong><span>Um ambiente elegante, tranquilo e preparado para você.</span></div></li>
+          </ul>
+          <a class="btn btn--linha revelar" style="--d:4" href="sobre.html">Conheça a clínica</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Jornada -->
+    <section class="secao secao--champ">
+      <div class="container">
+        <div class="cabeca cabeca--centro">
+          <span class="sobretitulo sobretitulo--centro revelar">Sua jornada</span>
+          <h2 class="titulo-l revelar" style="--d:1">Do primeiro contato<br><em>ao seu resultado.</em></h2>
+        </div>
+        <ol class="jornada">
+          <li class="passo revelar"><span class="passo__num" aria-hidden="true">01</span><div><h3>Contato</h3><p>Você fala com a clínica pelo WhatsApp e escolhe o melhor horário.</p></div></li>
+          <li class="passo revelar" style="--d:1"><span class="passo__num" aria-hidden="true">02</span><div><h3>Avaliação</h3><p>Uma conversa individual para entender seus objetivos, seu histórico e suas expectativas.</p></div></li>
+          <li class="passo revelar" style="--d:2"><span class="passo__num" aria-hidden="true">03</span><div><h3>Plano personalizado</h3><p>A indicação do procedimento ou protocolo mais adequado para você.</p></div></li>
+          <li class="passo revelar" style="--d:3"><span class="passo__num" aria-hidden="true">04</span><div><h3>Acompanhamento</h3><p>Orientações antes e depois, com atenção à sua evolução.</p></div></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 5. Desejo: resultados -->
+    <section class="secao">
+      <div class="container dupla">
+        <div>
+          <span class="sobretitulo revelar">Resultados</span>
+          <h2 class="titulo-l revelar" style="--d:1">Resultados que respeitam<br><em>a sua naturalidade.</em></h2>
+          <p class="lead revelar" style="--d:2">Arraste a linha para comparar. Na galeria, cada resultado é publicado <strong>com autorização da paciente</strong>.</p>
+          <div class="acoes revelar" style="--d:3">
+            <a class="btn btn--ouro" href="resultados.html">Ver galeria</a>
+          </div>
+        </div>
+        <div class="comparar revelar" style="--d:1">
+          <div class="comparar__lado comparar__depois foto foto--nevoa" data-legenda="Foto · depois"></div>
+          <div class="comparar__lado comparar__antes foto foto--bronze" data-legenda="Foto · antes"></div>
+          <span class="comparar__rotulo comparar__rotulo--antes">Antes</span>
+          <span class="comparar__rotulo comparar__rotulo--depois">Depois</span>
+          <div class="comparar__linha"><span class="comparar__pega"><i data-ic="setas"></i></span></div>
+          <input type="range" min="0" max="100" value="50" aria-label="Comparar antes e depois">
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Prova social (Perfil da Empresa no Google) -->
+    <section class="secao secao--clara">
+      <div class="container">
+        <div class="cabeca cabeca--centro">
+          <span class="sobretitulo sobretitulo--centro revelar">Avaliações</span>
+          <h2 class="titulo-l revelar" style="--d:1">A experiência<br><em>de quem já passou por aqui.</em></h2>
+          <p class="lead revelar" style="--d:2">Avaliações publicadas pelas próprias pacientes no <strong>Perfil da Empresa no Google</strong>.</p>
+        </div>
+        <div class="avaliacoes">
+          <figure class="avaliacao revelar">
+            <div class="estrelas" role="img" aria-label="5 de 5 estrelas"><i data-ic="estrela"></i><i data-ic="estrela"></i><i data-ic="estrela"></i><i data-ic="estrela"></i><i data-ic="estrela"></i></div>
+            <blockquote>“Espaço para o depoimento real de uma paciente, publicado no Google.”</blockquote>
+            <figcaption class="avaliacao__autor"><span class="avatar">A</span><span><strong>Nome da paciente</strong><br>Avaliação no Google</span></figcaption>
+          </figure>
+          <figure class="avaliacao revelar" style="--d:1">
+            <div class="estrelas" role="img" aria-label="5 de 5 estrelas"><i data-ic="estrela"></i><i data-ic="estrela"></i><i data-ic="estrela"></i><i data-ic="estrela"></i><i data-ic="estrela"></i></div>
+            <blockquote>“Aqui entram as avaliações verdadeiras do Perfil da Empresa da Mundo Zoe.”</blockquote>
+            <figcaption class="avaliacao__autor"><span class="avatar">B</span><span><strong>Nome da paciente</strong><br>Avaliação no Google</span></figcaption>
+          </figure>
+          <figure class="avaliacao revelar" style="--d:2">
+            <div class="estrelas" role="img" aria-label="5 de 5 estrelas"><i data-ic="estrela"></i><i data-ic="estrela"></i><i data-ic="estrela"></i><i data-ic="estrela"></i><i data-ic="estrela"></i></div>
+            <blockquote>“Avaliações reais reforçam a confiança de quem ainda não conhece a clínica.”</blockquote>
+            <figcaption class="avaliacao__autor"><span class="avatar">C</span><span><strong>Nome da paciente</strong><br>Avaliação no Google</span></figcaption>
+          </figure>
+        </div>
+        <div class="centro"><a class="link-seta" href="#" data-google>Ver avaliações no Google <i data-ic="seta"></i></a></div>
+      </div>
+    </section>
+
+    <!-- 7. Dúvidas -->
+    <section class="secao">
+      <div class="container">
+        <div class="cabeca cabeca--centro">
+          <span class="sobretitulo sobretitulo--centro revelar">Dúvidas frequentes</span>
+          <h2 class="titulo-l revelar" style="--d:1">Ainda com dúvidas?<br><em>A gente responde.</em></h2>
+        </div>
+        <div class="faq revelar">
+          <details>
+            <summary>Como faço para agendar? <span class="mais" aria-hidden="true"></span></summary>
+            <p>Pelo WhatsApp: toque em “Agendar avaliação” em qualquer página. A mensagem já vai pronta e a equipe combina o melhor horário com você.</p>
+          </details>
+          <details>
+            <summary>Preciso passar por uma avaliação antes do procedimento? <span class="mais" aria-hidden="true"></span></summary>
+            <p>Sim. A <strong>avaliação individual</strong> é o que define qual procedimento ou protocolo faz sentido para o seu objetivo e para a sua pele.</p>
+          </details>
+          <details>
+            <summary>Os resultados são iguais para todas as pessoas? <span class="mais" aria-hidden="true"></span></summary>
+            <p>Não. Cada organismo responde de um jeito — por isso o plano é personalizado e <strong>os resultados variam de pessoa para pessoa</strong>.</p>
+          </details>
+          <details>
+            <summary>Onde fica a clínica? <span class="mais" aria-hidden="true"></span></summary>
+            <p><span data-c="endereco"></span> · <span data-c="cidade"></span>. Veja o mapa, os horários e todos os contatos na página <a href="contato.html">Contato</a>.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. Ação -->
+    <section class="chamada" data-chamada></section>
+  </main>
+
+  <footer class="rodape" id="rodape"></footer>
+</body>
+</html>
